@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ke Hote Chay Boroloks - Quiz Contest</title>
+    <script src="cookie.js"></script>
+    <script src="quiz.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #2C3E50;
+            /* position: relative; */
+
+        }
+        .quiz-container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            /* height: 100vh; */
+
+        }
+        .question-container {
+            margin-bottom: 20px;
+        }
+        .options-container {
+            margin: 15px 0;
+        }
+        .option-item {
+            margin: 8px 0;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .result-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .leaderboard {
+            margin-top: 30px;
+        }
+        .summary {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9f7ef;
+            border-radius: 5px;
+        }
+        h1{
+            color: #eef0f3;
+        }
+        h2{
+            color: #000102;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ke Hote Chay Boroloks - Quiz Contest</h1>
+    
+    <div id="quiz-container" class="quiz-container">
+        <div id="question-display"></div>
+        
+        <div id="result-container" class="result-container" style="display: none;">
+            <h2>Quiz Completed!</h2>
+            <div id="score-display"></div>
+            <div id="summary-container" class="summary"></div>
+            
+            <div id="name-input-container" style="margin-top: 20px;">
+                <p>Enter your name to save your score:</p>
+                <input type="text" id="player-name" placeholder="Your Name">
+                <button onclick="saveScore()" class="submit-btn">Save Score</button>
+            </div>
+        </div>
+        
+        <div id="leaderboard-container" class="leaderboard" style="display: none;">
+            <h2>Leaderboard</h2>
+            <table id="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-body">
+                </tbody>
+            </table>
+            <button onclick="resetQuiz()" class="submit-btn" style="margin-top: 20px;">Play Again</button>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize quiz when page loads
+        window.onload = function() {
+            initializeQuiz();
+        };
+    </script>
+</body>
+</html>
